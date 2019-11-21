@@ -1,4 +1,12 @@
 from room import Room
+from player import Player
+
+
+# class Game:
+#     def __init__(self, player, rooms=[]):
+#         self.player = player
+#         self.rooms = rooms
+
 
 # Declare all the rooms
 
@@ -38,6 +46,14 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+
+
+new_player_name = input(f'Please enter your name :> ')
+
+player1 = Player(new_player_name, room["outside"])
+
+print(player1, player1.current_room)
+print(room['outside'].description)
 
 # Write a loop that:
 #
