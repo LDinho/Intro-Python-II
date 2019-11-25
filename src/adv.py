@@ -1,13 +1,6 @@
 from room import Room
 from player import Player
 
-
-# class Game:
-#     def __init__(self, player, rooms=[]):
-#         self.player = player
-#         self.rooms = rooms
-
-
 # Declare all the rooms
 
 room = {
@@ -65,3 +58,45 @@ print(room['outside'].description)
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+selection = ""
+
+# While we have not selected Quit
+# +1 because we added quit
+while selection != "q":
+
+    print(player1.current_room, "\n")
+
+    selection = input(
+        "Choose a direction: \n "
+        "North: n\n "
+        "East: e\n "
+        "South: s\n "
+        "West: w\n"
+        "Quit Game: q\n > "
+    )
+
+    # error handler
+    try:
+
+        if selection == "n":
+            player1.current_room = player1.current_room.n_to
+            print(f"you're in {player1.current_room}")
+
+        elif selection == "e":
+            player1.current_room = player1.current_room.e_to
+            print(f"you're in {player1.current_room}")
+
+        elif selection == "s":
+            player1.current_room = player1.current_room.s_to
+            print(f"you're in {player1.current_room}")
+
+        elif selection == "w":
+            player1.current_room = player1.current_room.w_to
+            print(f"you're in {player1.current_room}")
+
+        else:
+            print("GAME OVER")
+
+    except ValueError:
+        print("Invalid selection. Please try again")
